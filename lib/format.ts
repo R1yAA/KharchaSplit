@@ -17,6 +17,15 @@ export function formatDateShort(d: string | Date): string {
   return date.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 }
 
+export function formatReturnPct(pct: number): string {
+  const sign = pct > 0 ? "▲" : pct < 0 ? "▼" : "";
+  return `${sign} ${Math.abs(pct).toFixed(2)}%`;
+}
+
+export function formatPnL(amount: number): string {
+  return `${amount >= 0 ? "+" : "−"}${formatINR(Math.abs(amount))}`;
+}
+
 export function relativeDay(d: string | Date): string {
   const date = typeof d === "string" ? new Date(d) : d;
   const today = new Date();

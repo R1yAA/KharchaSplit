@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, BarChart3, Settings } from "lucide-react";
+import { Home, User, TrendingUp, BarChart3, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const tabs = [
   { href: "/", label: "Groups", icon: Home, match: (p: string) => p === "/" || p.startsWith("/group") },
   { href: "/personal", label: "Personal", icon: User, match: (p: string) => p.startsWith("/personal") },
+  { href: "/invest", label: "Invest", icon: TrendingUp, match: (p: string) => p.startsWith("/invest") },
   { href: "/analytics", label: "Analytics", icon: BarChart3, match: (p: string) => p.startsWith("/analytics") },
   { href: "/settings", label: "Settings", icon: Settings, match: (p: string) => p.startsWith("/settings") },
 ];
@@ -16,7 +17,7 @@ export function BottomTabs() {
   const pathname = usePathname() || "/";
   return (
     <nav className="fixed bottom-0 inset-x-0 z-30 border-t bg-surface/95 backdrop-blur tabbar-safe">
-      <ul className="mx-auto grid max-w-md grid-cols-4">
+      <ul className="mx-auto grid max-w-md grid-cols-5">
         {tabs.map((t) => {
           const active = t.match(pathname);
           const Icon = t.icon;
