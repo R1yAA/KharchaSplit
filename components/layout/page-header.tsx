@@ -14,7 +14,7 @@ export function PageHeader({
 }) {
   const router = useRouter();
   return (
-    <header className="sticky top-0 z-20 flex items-center gap-2 border-b bg-surface/95 px-3 py-3 backdrop-blur">
+    <header className="sticky top-0 z-20 flex items-center gap-2 border-b bg-surface/95 px-3 py-3 pt-[calc(env(safe-area-inset-top)+0.75rem)] backdrop-blur">
       {back && (
         <button onClick={() => router.back()} className="rounded-full p-1.5 hover:bg-elevated" aria-label="Back">
           <ChevronLeft className="h-6 w-6" />
