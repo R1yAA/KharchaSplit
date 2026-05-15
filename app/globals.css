@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0B0B10;
+  --foreground: #F5F5F7;
+  color-scheme: dark;
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  font-feature-settings: "ss01";
+}
+
+/* Safe-area aware bottom padding for tab bar */
+.pb-tabbar { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+.tabbar-safe { padding-bottom: env(safe-area-inset-bottom); }
+
+/* Hide scrollbars for horizontal chip rows */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* Dark theme form controls */
+input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8); }
+select { color-scheme: dark; }
